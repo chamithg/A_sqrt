@@ -5,28 +5,25 @@ class Solution(object):
         :rtype: int
         """
         
-        midPoint = x//2
-        
-        if midPoint * midPoint == x:
-            return midPoint
+        start = 0
+        end = x
         
         
-        while midPoint * midPoint != x:
-            print(midPoint)
+        while start+1<end:
+            temp = start+end /2
             
-            if midPoint* midPoint < x and midPoint +1 * midPoint+1 > x:
-                return midPoint
-            
-            if midPoint* midPoint < x:
-                midPoint = x- midPoint //2
-            else:
-                midPoint = midPoint //2
-            
-            
-        
+            if temp*temp <x:
+                start =temp
+            if temp*temp > x:
+                end = temp
+            if temp*temp == x:return int(temp) 
+                
+        if end* end ==x:return int(end)
+        return int(start+end /2)
+    
         
         
 
 obj = Solution()
 
-print(obj.mySqrt(2147395599))
+print(obj.mySqrt(4782))
